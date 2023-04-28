@@ -1,20 +1,42 @@
+import java.util.Date;
+
 public class EjemploAutomovil {
     public static void main(String[] args) {
 
-        Automovil subaru = new Automovil();
-        subaru.fabricante = "Subaru";
-        subaru.modelo = "Impreza";
-        subaru.cilindrada = 2.0;
-        subaru.color = "Blanco";
+        Automovil subaru = new Automovil("Subaru", "Impreza");
+        subaru.setCilindrada( 2.0);
+        subaru.setColor("Blanco");
 
-        Automovil mazda = new Automovil();
-        subaru.fabricante = "Mazda";
-        subaru.modelo = "BT-50";
-        subaru.cilindrada = 3.0;
-        subaru.color = "Rojo";
+        Automovil mazda = new Automovil("Mazda", "BT-50", "Rojo", 3.0);
 
-        System.out.println(subaru.detalle());
-        System.out.println(mazda.detalle());
+        Automovil nissan = new Automovil("Nissan", "Navara", "Gris Oscuro", 3.5, 50);
+        Automovil nissan2 = new Automovil("Nissan", "Navara", "Gris Oscuro", 3.5, 50);
+
+        Date fecha = new Date();
+
+        System.out.println("son iguales? " + (nissan == nissan2));
+        System.out.println("son iguales con equals ? " + (nissan.equals(nissan2)));
+
+        Automovil auto = new Automovil();
+
+        System.out.println("son iguales con equals ? " + (auto.equals(fecha)));
+
+        System.out.println(subaru.verDetalle());
+        System.out.println(mazda.verDetalle());
+        System.out.println(nissan.verDetalle());
+        System.out.println(subaru.acelerar(3000));
+        System.out.println(subaru.frenar());
+
+        System.out.println("nissan = " + nissan);
+        System.out.println("nissan = " + nissan.toString());
+
+        System.out.println(mazda.acelerarFrenar(4000));
+
+        System.out.println("Kilometros por litro "+ subaru.calcularConsumo(300, 0.6f));
+
+        System.out.println("Kilometros por litro "+ subaru.calcularConsumo(300, 60));
+
+        System.out.println("Kilometros por litro "+ nissan.calcularConsumo(300, 60));
 
     }
 }
